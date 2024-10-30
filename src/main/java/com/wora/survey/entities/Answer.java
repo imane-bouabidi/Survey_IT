@@ -13,7 +13,7 @@ public class Answer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank(message = "Text is mandatory")
+    @NotBlank
     private String text;
 
     private Integer selectionCount;

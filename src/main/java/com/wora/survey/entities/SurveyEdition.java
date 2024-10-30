@@ -17,9 +17,10 @@ public class SurveyEdition {
 
     @NotNull
     private Date creationDate;
-
+    @NotNull
     private Date startDate;
     private Integer year;
 
     @ManyToOne
-    private Survey survey;}
+    private Survey survey;
+}
