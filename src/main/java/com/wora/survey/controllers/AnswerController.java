@@ -27,26 +27,26 @@ public class AnswerController {
 
     @GetMapping
     public ResponseEntity<List<AnswerDTO>> getAllAnswers() {
-        List<AnswerDTO> answers = answerService.getAllAnswers();
+        List<AnswerDTO> answers = answerService.findAll();
         return ResponseEntity.ok(answers);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<AnswerDTO> getAnswerById(@PathVariable Integer id) {
-        AnswerDTO answer = answerService.getAnswerById(id);
+        AnswerDTO answer = answerService.findById(id);
         return ResponseEntity.ok(answer);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<AnswerDTO> updateAnswer(@PathVariable Integer id,@Validated @RequestBody AnswerUpdateDTO answerUpdateDTO) {
         answerUpdateDTO.setId(id);
-        AnswerDTO updatedAnswer = answerService.updateAnswer(answerUpdateDTO);
+        AnswerDTO updatedAnswer = answerService.update(answerUpdateDTO);
         return ResponseEntity.ok(updatedAnswer);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAnswer(@PathVariable Integer id) {
-        answerService.deleteAnswer(id);
+        answerService.delete(id);
         return ResponseEntity.noContent().build();
     }
 }
