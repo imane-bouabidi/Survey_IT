@@ -8,15 +8,17 @@ import com.wora.survey.mappers.AnswerMapper;
 import com.wora.survey.repositories.AnswerRepository;
 import com.wora.survey.services.Interfaces.AnswerService;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class AnswerServiceImpl implements AnswerService {
 
-    private AnswerRepository answerRepository;
-    private AnswerMapper answerMapper;
+    private final AnswerRepository answerRepository;
+    private final AnswerMapper answerMapper;
 
     public AnswerDTO save(AnswerCreateDTO answerCreateDTO) {
         Answer answer = answerMapper.toEntity(answerCreateDTO);
@@ -39,10 +41,9 @@ public class AnswerServiceImpl implements AnswerService {
     public AnswerDTO update(AnswerUpdateDTO answerUpdateDTO) {
         Answer answer = answerRepository.findById(answerUpdateDTO.getId())
                 .orElseThrow(() -> new EntityNotFoundException("Answer not found"));
-        AnswerDTO answerDTO = answerMapper.toDTO(answer);
 
-        answerDTO.setText(answerUpdateDTO.getText());
-        answerDTO.setSelectionCount(answerUpdateDTO.getSelectionCount());
+        answer.setText(answerUpdateDTO.getText());
+        answer.setSelectionCount(answerUpdateDTO.getSelectionCount());
         return answerMapper.toDTO(answerRepository.save(answer));
     }
 

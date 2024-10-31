@@ -26,6 +26,6 @@ public class Question {
     @ManyToOne
     private Subject subject;
 
-    @OneToMany(mappedBy = "question")
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
     private List<Answer> answers;
 }

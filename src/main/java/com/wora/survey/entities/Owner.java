@@ -1,23 +1,22 @@
 package com.wora.survey.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Setter
 @Getter
 @Entity
 public class Owner {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
-    private Integer selectionCount;
-
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+    private List<Survey> surveys;
 
 }

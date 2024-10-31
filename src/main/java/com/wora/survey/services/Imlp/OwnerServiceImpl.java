@@ -8,15 +8,17 @@ import com.wora.survey.mappers.OwnerMapper;
 import com.wora.survey.repositories.OwnerRepository;
 import com.wora.survey.services.Interfaces.OwnerService;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class OwnerServiceImpl implements OwnerService {
 
-    private OwnerRepository ownerRepository;
-    private OwnerMapper ownerMapper;
+    private final OwnerRepository ownerRepository;
+    private final OwnerMapper ownerMapper;
 
     public OwnerDTO save(OwnerCreateDTO ownerCreateDTO) {
         Owner owner = ownerMapper.toEntity(ownerCreateDTO);
@@ -39,9 +41,8 @@ public class OwnerServiceImpl implements OwnerService {
     public OwnerDTO update(OwnerUpdateDTO ownerUpdateDTO) {
         Owner owner = ownerRepository.findById(ownerUpdateDTO.getId())
                 .orElseThrow(() -> new EntityNotFoundException("Owner not found"));
-        OwnerDTO ownerDTO = ownerMapper.toDTO(owner);
 
-        ownerDTO.setName(ownerUpdateDTO.getName());
+        owner.setName(ownerUpdateDTO.getName());
         return ownerMapper.toDTO(ownerRepository.save(owner));
     }
 

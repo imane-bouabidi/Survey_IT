@@ -3,7 +3,8 @@ package com.wora.survey.controllers;
 import com.wora.survey.dtos.owner.OwnerCreateDTO;
 import com.wora.survey.dtos.owner.OwnerDTO;
 import com.wora.survey.dtos.owner.OwnerUpdateDTO;
-import com.wora.survey.services.Imlp.OwnerServiceImpl;
+import com.wora.survey.services.Interfaces.OwnerService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -13,9 +14,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/owners")
+@RequiredArgsConstructor
 public class OwnerController {
 
-    private OwnerServiceImpl ownerService;
+    private final OwnerService ownerService;
 
     @PostMapping
     public ResponseEntity<OwnerDTO> createOwner(@Validated @RequestBody OwnerCreateDTO ownerCreateDTO) {
@@ -26,7 +28,7 @@ public class OwnerController {
     @GetMapping
     public ResponseEntity<List<OwnerDTO>> getAllOwners() {
         List<OwnerDTO> owners = ownerService.findAll();
-        return ResponseEntity.ok(owners);
+        return new ResponseEntity<>(owners, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

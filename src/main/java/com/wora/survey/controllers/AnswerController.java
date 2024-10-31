@@ -3,8 +3,8 @@ package com.wora.survey.controllers;
 import com.wora.survey.dtos.answer.AnswerCreateDTO;
 import com.wora.survey.dtos.answer.AnswerDTO;
 import com.wora.survey.dtos.answer.AnswerUpdateDTO;
-import com.wora.survey.services.Imlp.AnswerServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.wora.survey.services.Interfaces.AnswerService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -14,9 +14,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/answers")
+@RequiredArgsConstructor
 public class AnswerController {
 
-    private AnswerServiceImpl answerService;
+    private final AnswerService answerService;
 
     @PostMapping
     public ResponseEntity<AnswerDTO> createAnswer(@Validated @RequestBody AnswerCreateDTO answerCreateDTO) {

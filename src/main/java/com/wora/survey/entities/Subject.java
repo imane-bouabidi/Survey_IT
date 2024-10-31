@@ -18,12 +18,12 @@ public class Subject {
     @NotBlank
     private String title;
 
-    @OneToMany(mappedBy = "subject")
+    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
     private List<Question> questions;
 
     @ManyToOne
     private Subject parentSubject;
 
-    @OneToMany(mappedBy = "parentSubject")
+    @OneToMany(mappedBy = "parentSubject", cascade = CascadeType.ALL)
     private List<Subject> subSubjects;
 }

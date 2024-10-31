@@ -23,7 +23,7 @@ public class Survey {
     @Size(max = 255, message = "Description must be less than 255 characters")
     private String description;
 
-    @OneToMany(mappedBy = "survey")
+    @OneToMany(mappedBy = "survey", cascade = CascadeType.ALL)
     private List<SurveyEdition> editions;
 
     @ManyToOne
