@@ -16,7 +16,6 @@ import java.util.List;
 @RequestMapping("/api/answers")
 public class AnswerController {
 
-    @Autowired
     private AnswerServiceImpl answerService;
 
     @PostMapping
