@@ -27,4 +27,5 @@ public class Survey {
     private List<SurveyEdition> editions;
 
     @ManyToOne
-    private Owner owner;}
+    private Owner owner;
+}
