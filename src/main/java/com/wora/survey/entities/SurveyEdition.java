@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Setter
 @Getter
@@ -16,9 +16,9 @@ public class SurveyEdition {
     private Integer id;
 
     @NotNull
-    private Date creationDate;
+    private LocalDate creationDate;
     @NotNull
-    private Date startDate;
+    private LocalDate startDate;
     private Integer year;
 
     @ManyToOne
