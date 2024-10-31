@@ -1,5 +1,6 @@
 package com.wora.survey.dtos.surveyEdition;
 
+import com.wora.survey.dtos.Subject.EmbeddedSubjectDTO;
 import com.wora.survey.dtos.survey.EmbeddedSurveyDTO;
 import com.wora.survey.entities.Survey;
 import jakarta.persistence.ManyToOne;

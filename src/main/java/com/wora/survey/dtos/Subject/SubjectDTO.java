@@ -1,5 +1,7 @@
 package com.wora.survey.dtos.Subject;
 
+import com.wora.survey.dtos.question.EmbeddedQuestionDTO;
+
 import java.util.List;
 
 public class SubjectDTO {
