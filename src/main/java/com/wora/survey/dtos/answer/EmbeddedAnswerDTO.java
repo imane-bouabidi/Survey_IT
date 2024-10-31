@@ -1,6 +1,11 @@
 package com.wora.survey.dtos.answer;
 
-    public class EmbeddedAnswerDTO {
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class EmbeddedAnswerDTO {
     private Integer id;
     private String text;
 }

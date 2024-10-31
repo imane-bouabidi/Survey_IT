@@ -6,6 +6,11 @@ import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class SubjectDTO {
     private Integer id;
     @NotNull

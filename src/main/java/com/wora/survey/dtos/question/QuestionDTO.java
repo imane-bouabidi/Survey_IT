@@ -6,6 +6,11 @@ import com.wora.survey.entities.eums.QuestionType;
 
 import java.util.List;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class QuestionDTO {
     private Integer id;
     private String text;
