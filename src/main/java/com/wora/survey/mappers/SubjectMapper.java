@@ -1,8 +1,8 @@
 package com.wora.survey.mappers;
 
-import com.wora.survey.dtos.Subject.SubjectCreateDTO;
-import com.wora.survey.dtos.Subject.SubjectDTO;
-import com.wora.survey.dtos.Subject.SubjectUpdateDTO;
+import com.wora.survey.dtos.subject.SubjectCreateDTO;
+import com.wora.survey.dtos.subject.SubjectDTO;
+import com.wora.survey.dtos.subject.SubjectUpdateDTO;
 import com.wora.survey.entities.Subject;
 import org.mapstruct.Mapper;
 

@@ -1,4 +1,4 @@
-package com.wora.survey.dtos.Subject;
+package com.wora.survey.dtos.subject;
 
 import jakarta.validation.constraints.NotBlank;
 
@@ -7,10 +7,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SubjectUpdateDTO {
-    private Integer id;
+public class SubjectCreateDTO {
     @NotBlank
     private String title;
     private Integer parentSubjectId;
 }
-

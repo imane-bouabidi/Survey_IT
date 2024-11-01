@@ -1,4 +1,4 @@
-package com.wora.survey.dtos.Subject;
+package com.wora.survey.dtos.subject;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.wora.survey.dtos.Subject;
+package com.wora.survey.dtos.subject;
 
 import com.wora.survey.dtos.question.EmbeddedQuestionDTO;
 import jakarta.validation.constraints.NotNull;
